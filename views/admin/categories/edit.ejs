@@ -5,13 +5,13 @@
             <hr>
             <div class="card">
                 <div class="card-header">
-                    <h2>Cadastro de Categoria</h2>
+                    <h2>Editar Categoria</h2>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="/categories/save" onsubmit="alertaCategoria(event,this)">
-                        <input class="form-control" type="text" name="title"
-                            placeholder="Defina o titulo da categoria"><br>
-                        <button class="btn btn-success">Cadastrar</button>
+                    <form method="POST" action="/categories/update" onsubmit="alertaCategoria(event,this)">
+                        <input class="form-control" type="text" name="title" placeholder="Defina o titulo da categoria" value="<%= category.title %>"><br>
+                            <input type="hidden" name="id" value="<%= category.id%>">
+                        <button class="btn btn-success">Atualizar</button>
                     </form>
                 </div>
             </div>
@@ -23,7 +23,7 @@
                 function alertaCategoria(event,submit){
 
                     if(submit){
-                        alert("Você criou uma categoria");
+                        alert("Você editou uma categoria");
                         submit.submit();
                     }
                     
