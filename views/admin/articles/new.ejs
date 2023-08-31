@@ -29,4 +29,16 @@
                     }                
         }
         </script>
+        <script src="/tinymce/tinymce.min.js"></script>
+        <script>
+
+            tinymce.init({
+                language:'pt_BR', //Não foi possível usar o package pois não está disponível para free.
+                selector:"#article",
+                plugins:[
+                    'advlist autolink link image lists print preview hr searchreplace wordcount fullscreen insertdatetime media save table paste emoticons'
+                ]
+            })
+
+        </script>
         
