@@ -5,23 +5,20 @@
             <hr>
             <div class="card">
                 <div class="card-header">
-                    <h2>Cadastro de Artigo</h2>
+                    <h2>Novo artigo</h2>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="/articles/new" onsubmit="alertaArtigos(event,this)">
-                        <input class="form-control" type="text" name="title"
-                            placeholder="Defina o titulo do artigo"><br>
+                    <form method="POST" action="/admin/articles/new" onsubmit="alertaArtigos(event,this)">
+                        <input class="form-control" type="text" name="title" placeholder="Defina o titulo do artigo"><br>
                             <textarea class="form-control" placeholder="Escreva aqui o artigo" name="body" id="article"></textarea><br>
                             <label>Categoria</label>
                             <select name="category" class="form-control">
-                               <% categories.forEach((category) => { %>
-                                <option value="<%= category.id %>">
-                                    <%= category.title %>
-                                </option>
-                             <% }) %>
+                                <% categories.forEach((category)=>{ %>
+                                         <option value="<%= category.id %>" ><%= category.title %></option>   
 
-                            </select>
-                        <button class="btn btn-success">Cadastrar</button>
+                                   <% }) %> 
+                            </select> <br>
+                                                    <button class="btn btn-success">Cadastrar</button>
                     </form>
                 </div>
             </div>
@@ -33,7 +30,7 @@
                 function alertaArtigos(event,submit){
 
                     if(submit){
-                        alert("Você criou uma categoria");
+                        alert("Você criou um artigo");
                         submit.submit();
                     }                
         }
