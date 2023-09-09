@@ -19,9 +19,17 @@ const Articles = require("./Article");
     })
 });*/
 
-router.get("/admin/articles", (req,res) => {
-    res.render("admin/articles/index");
+
+router.get("/admin/articles/", (req,res) => {
+    Articles.findAll().then(articles =>{
+        res.render("admin/articles/index",{articles:articles})
+    })
 });
+
+router.get("/admin/articles/index", (req,res) => {
+    res.render("admin/articles/index");
+
+})
 
 router.get("/admin/articles/new",(req,res)=>{
     Category.findAll().then(categories => {
@@ -40,7 +48,8 @@ router.post("/articles/save",(req,res)=>{
         title: title,
         body: body,
         slug: slugify(title),
-        categoryId: category
+        categoryId:category
+       
     }).then(() => {
         res.redirect("/admin/articles");
     })

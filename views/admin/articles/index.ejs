@@ -5,7 +5,7 @@
   <div class="container">
         <hr>
         <h2>Artigos</h2>
-        <a class="btn btn-success" href="/admin/articles">Criar novo artigo</a>
+        <a class="btn btn-success" href="/admin/articles/new">Criar novo artigo</a>
         <hr>
         <table class="table table-bordered">
             <thead>
@@ -18,8 +18,14 @@
                 </tr>
             </thead>
             <tbody>
-          
-                
+                <% articles.forEach(article => { %>
+                <td><%= article.id %></td>
+                <td><%= article.title %></td>
+                <td><%= article.slug %></td>
+                <td><%= article.categoryId %></td>
+                 <td>Ações </td>
+
+                <% }) %>
             </tbody>
         </table>
     </div>
